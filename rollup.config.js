@@ -1,10 +1,9 @@
 const typescript = require('@rollup/plugin-typescript');
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-const replace = require('@rollup/plugin-replace');
 
 export default {
-    input: './src/main.ts',
+    input: './src/extensions.ts',
     // external: id => ['vscode'].includes(id),
     plugins: [
         nodeResolve(),
@@ -17,7 +16,7 @@ export default {
 
     output: [{
         format: 'es',
-        file: `./dist/main.js`,
+        file: `./out/extensions.js`,
         sourcemap: false,
     }]
 };

@@ -39,6 +39,6 @@
   },
   // 入口文件
   "include": [
-      "src/main.ts"
+      "src/extensions.ts"
   ]
 }
