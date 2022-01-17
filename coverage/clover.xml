@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1642409153306" clover="3.2.0">
+  <project timestamp="1642409153306" name="All files">
+    <metrics statements="35" coveredstatements="0" conditionals="13" coveredconditionals="0" methods="7" coveredmethods="0" elements="55" coveredelements="0" complexity="0" loc="35" ncloc="35" packages="1" files="2" classes="2"/>
+    <file name="getType.ts" path="D:\WWW\export-type\src\getType.ts">
+      <metrics statements="25" coveredstatements="0" conditionals="11" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <line num="1" count="0" type="stmt"/>
+      <line num="9" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="19" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="23" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="36" count="0" type="stmt"/>
+      <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="49" count="0" type="stmt"/>
+      <line num="50" count="0" type="stmt"/>
+      <line num="55" count="0" type="stmt"/>
+      <line num="59" count="0" type="stmt"/>
+    </file>
+    <file name="main.ts" path="D:\WWW\export-type\src\main.ts">
+      <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="9" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="10" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>

@@ -1,2 +1,3 @@
 # export-type
-从javascript字面量导出typescript类型
+
+从 javascript 字面量导出 typescript 类型
