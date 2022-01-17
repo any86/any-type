@@ -1,4 +1,6 @@
+import prettier from 'prettier';
 import getType from "../src/getType";
+
 test(`验证数组`, () => {
   const input = `[
         {
@@ -17,13 +19,15 @@ test(`验证数组`, () => {
         }
       ]`;
 
-  expect(getType(input)).toMatchSnapshot(`type ResponseData= {
+  expect(prettier.format(getType(input))).toBe(
+    prettier.format(`type ResponseData= {
         userId:string;
         age:number;
         sex:number;
         nickName:string;
         userName:string;
-    }[];`);
+    }[];`)
+  );
 });
 
 

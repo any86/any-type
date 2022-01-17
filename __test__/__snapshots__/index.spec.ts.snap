@@ -1,23 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`验证数组: type ResponseData= {
-        u11serId:string;
-        age:number;
-        sex:number;
-        nickName:string;
-        userName:string;
-    }[]; 1`] = `
-"type ResponseData=
-{
-    userId:string;
-    age:number;
-    sex:number;
-    nickName:string;
-    userName:string;
-}[];"
-`;
-
-exports[`验证数组: type ResponseData= {
         userId:string;
         age:number;
         sex:number;
