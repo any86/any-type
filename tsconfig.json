@@ -22,7 +22,7 @@
       // 生成sourceMap    
       "sourceMap": true,
       // 目标文件所在路径
-      "outDir": "./dist",
+      "outDir": "./out",
       // 编译过程中需要引入的库文件的列表
       "lib": [
           "dom",
@@ -33,7 +33,7 @@
       // 是否生成声明文件
       "declaration": true,
       // 声明文件路径
-      "declarationDir": "./types",
+      "declarationDir": "./out",
       // 此处设置为node,才能解析import xx from 'xx'
       "moduleResolution": "node"
   },

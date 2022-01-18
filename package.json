@@ -2,12 +2,12 @@
   "name": "export-type",
   "version": "0.0.1",
   "description": "从 javascript 字面量导出 typescript 类型",
-  "main": "./dist/extensions.js",
+  "main": "./out/extensions.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc",
+    "compile": "rollup -c  --watch",
     "dev": "tsc -w",
-    "watch": "rollup -c  --watch",
+    "watch": "tsc -w",
     "test": "jest",
     "test:q": "jest --collectCoverage false"
   },
