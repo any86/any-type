@@ -33,7 +33,7 @@ export default function (jsonString: string, space = '    ') {
             for (let key in node) {
                 walk(node[key], key, 'object', level + 1);
             }
-            typeArray.push(`${indent}}` + (void 0 === propsName ? '' : ';'));
+            typeArray.push(`${indent}}` + (void 0 === propsName||'array' === parentType ? '' : ';'));
         }
         // 数组
         else if (isArray(node)) {
