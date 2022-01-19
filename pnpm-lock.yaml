@@ -8,7 +8,6 @@ specifiers:
   '@types/vscode': ^1.63.1
   jest: ^27.4.7
   json5: ^2.2.0
-  plugin-node-resolve: link:@rollup\plugin-node-resolve
   prettier: ^2.5.1
   rollup: ^2.64.0
   rollup-plugin-terser: ^7.0.2
@@ -25,7 +24,6 @@ devDependencies:
   '@types/vscode': 1.63.1
   jest: 27.4.7
   json5: 2.2.0
-  plugin-node-resolve: link:@rollup/plugin-node-resolve
   prettier: 2.5.1
   rollup: 2.64.0
   rollup-plugin-terser: 7.0.2_rollup@2.64.0

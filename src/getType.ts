@@ -1,4 +1,4 @@
-import * as JSON5 from 'json5';
+import parse from 'json5/lib/parse';
 import prettier from 'prettier/standalone';
 import typescriptParser from 'prettier/parser-typescript';
 
@@ -10,10 +10,7 @@ type KV = Record<string | number | symbol, unknown>;
  * @returns typescript类型
  */
 export default function (jsonString: string, space = '    ') {
-    // const is = isAllSameItemArray([[1], [2]])
-    // console.warn(is);
-
-    const json = JSON5.parse(jsonString);
+    const json = parse(jsonString);
     const typeArray: string[] = [`type ResponseData=`];
     walk(json);
     /**
@@ -95,17 +92,6 @@ function isObject(node: unknown): node is KV {
 function isArray(node: unknown): node is unknown[] {
     return '[object Array]' === Object.prototype.toString.call(node);
 }
-
-// function hasSameKeysObject(obj1: KV, obj2: KV): boolean {
-//     const isSameKeysLength = Object.keys(obj1).length === Object.keys(obj2).length;
-//     if (!isSameKeysLength) return false;
-//     for (const key in obj1) {
-//         if (void 0 === obj2[key]) {
-//             return false;
-//         }
-//     }
-//     return true;
-// }
 
 export function isSameScheme(input1: unknown, input2: unknown) {
     const type = [getType(input1), getType(input2)];

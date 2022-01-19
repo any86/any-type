@@ -1,6 +1,8 @@
 {
   "name": "any-type",
   "version": "0.0.1",
+  "publisher": "russell",
+  "displayName": "any-type",
   "description": "从 javascript 字面量导出 typescript 类型",
   "main": "./out/extension.js",
   "scripts": {
