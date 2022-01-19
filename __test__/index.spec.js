@@ -1,8 +1,9 @@
-import * as prettier from 'prettier';
-import getType from "../src/getType";
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const prettier = require("prettier");
+const getType_1 = require("../src/getType");
 test(`验证数组`, () => {
-  const input = `[
+    const input = `[
         {
             "userId": "97",
             "age": 52.487349189738985,
@@ -18,46 +19,36 @@ test(`验证数组`, () => {
             "userName": "tziihyji"
         }
       ]`;
-
-  expect(getType(input)).toBe(
-    prettier.format(`type ResponseData= {
+    expect((0, getType_1.default)(input)).toBe(prettier.format(`type ResponseData= {
         userId:string;
         age:number;
         sex:number;
         nickName:string;
         userName:string;
-    }[];`, { parser: 'typescript' })
-  );
+    }[];`, { parser: 'typescript' }));
 });
-
 test(`验证字符串`, () => {
-  expect(getType(`'机器猫'`)).toBe(prettier.format(`type ResponseData = string;`, { parser: 'typescript' }))
-})
-
+    expect((0, getType_1.default)(`'机器猫'`)).toBe(prettier.format(`type ResponseData = string;`, { parser: 'typescript' }));
+});
 test(`验证数字`, () => {
-  expect(getType(`123`)).toBe(prettier.format(`type ResponseData = number;`, { parser: 'typescript' }))
-})
-
-
+    expect((0, getType_1.default)(`123`)).toBe(prettier.format(`type ResponseData = number;`, { parser: 'typescript' }));
+});
 test(`数组中不同元素会被识别成元祖`, () => {
-  expect(getType(`[1,'2']`)).toBe(prettier.format(`type ResponseData = [number,string]`, { parser: 'typescript' }));
-  expect(getType(`[{a:1},{b:'2'}]`)).toBe(prettier.format(`type ResponseData = [{a:number},{b:string}]`, { parser: 'typescript' }));
-})
-
+    expect((0, getType_1.default)(`[1,'2']`)).toBe(prettier.format(`type ResponseData = [number,string]`, { parser: 'typescript' }));
+    expect((0, getType_1.default)(`[{a:1},{b:'2'}]`)).toBe(prettier.format(`type ResponseData = [{a:number},{b:string}]`, { parser: 'typescript' }));
+});
 test(`数组中相同元素会被识别成数祖`, () => {
-  expect(getType(`[{a:1},{a:2}]`)).toBe(prettier.format(`type ResponseData = {a:number}[]`, { parser: 'typescript' }));
-})
-
+    expect((0, getType_1.default)(`[{a:1},{a:2}]`)).toBe(prettier.format(`type ResponseData = {a:number}[]`, { parser: 'typescript' }));
+});
 test(`混合`, () => {
-  expect(getType(`{a:100,b:[10,'ww',{g:100,k:[200,'sanbai']}],c:'100'}`)).toBe(prettier.format(`type ResponseData = {
+    expect((0, getType_1.default)(`{a:100,b:[10,'ww',{g:100,k:[200,'sanbai']}],c:'100'}`)).toBe(prettier.format(`type ResponseData = {
     a: number;
     b: [number, string, { g: number; k: [number, string] }];
     c: string;
-  };`, { parser: 'typescript' }))
+  };`, { parser: 'typescript' }));
 });
-
 test(`验证对象`, () => {
-  const input = `{
+    const input = `{
         "totalSales": {
             "total": "288769",
             "weekCompared": "39",
@@ -89,9 +80,8 @@ test(`验证对象`, () => {
             "percent": 44,
             "totalOrder": "570290"
         }
-      }`
-
-  expect(getType(input)).toBe(prettier.format(`type ResponseData = {
+      }`;
+    expect((0, getType_1.default)(input)).toBe(prettier.format(`type ResponseData = {
       totalSales: {
           total: string;
           weekCompared: string;
@@ -103,3 +93,4 @@ test(`验证对象`, () => {
       activityResults: { percent: number; totalOrder: string };
   };`, { parser: 'typescript' }));
 });
+//# sourceMappingURL=index.spec.js.map

@@ -1,5 +1,7 @@
-import JSON5 from 'json5';
-import prettier from 'prettier';
+import * as JSON5 from 'json5';
+import prettier from 'prettier/standalone';
+import typescriptParser from 'prettier/parser-typescript';
+
 type KV = Record<string | number | symbol, unknown>;
 /**
  * 获取json类型
@@ -33,7 +35,7 @@ export default function (jsonString: string, space = '    ') {
             for (let key in node) {
                 walk(node[key], key, 'object', level + 1);
             }
-            typeArray.push(`${indent}}` + (void 0 === propsName||'array' === parentType ? '' : ';'));
+            typeArray.push(`${indent}}` + (void 0 === propsName || 'array' === parentType ? '' : ';'));
         }
         // 数组
         else if (isArray(node)) {
@@ -42,8 +44,6 @@ export default function (jsonString: string, space = '    ') {
             let isAllSameChildNode = true;
             let prevNode;
             for (let currentNode of node) {
-                // console.log({prevNode, currentNode,node});
-
                 if (void 0 !== prevNode) {
                     isAllSameChildNode = isSameScheme(prevNode, currentNode);
                     if (!isAllSameChildNode) {
@@ -52,13 +52,14 @@ export default function (jsonString: string, space = '    ') {
                 }
                 prevNode = currentNode;
             }
-            // 当前是顶级,数组
+            // 所有元素相同, 数组
+            // 结构: xxx[]
             if (isAllSameChildNode) {
-                // typeArray.push(void 0 !== propsName ? `${propsName}:` : '');
                 walk(node[0], propsName, 'array', level + 1);
                 typeArray.push('[]');
             }
             // 元组
+            // 结构: [xxx, yyy]
             else {
                 typeArray.push(void 0 !== propsName ? `${propsName}:[` : '[');
                 for (let childNode of node) {
@@ -69,9 +70,7 @@ export default function (jsonString: string, space = '    ') {
                 typeArray.pop();
                 typeArray.push(`]`);
             }
-            if(propsName) typeArray.push(';');
-
-
+            if (propsName) typeArray.push(';');
         }
         // 简单类型
         else {
@@ -79,15 +78,13 @@ export default function (jsonString: string, space = '    ') {
             if (void 0 === propsName) {
                 typeArray.push(`${indent}${type}`);
             } else {
-                typeArray.push(`${indent}${propsName}:${type}` + ('array' === parentType ? '' : ';'));
+                typeArray.push(`${indent}${propsName}: ${type}` + ('array' === parentType ? '' : ';'));
             }
         }
     }
 
     const typeString = typeArray.join('');
-    // return typeString;
-
-    return prettier.format(typeString, {parser:'typescript'});
+    return prettier.format(typeString, { parser: 'typescript',plugins:[typescriptParser] });
 }
 
 
